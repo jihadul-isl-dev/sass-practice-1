@@ -12,3 +12,25 @@
   transition: all 0.3s ease;
   font-family: "Libre Franklin", sans-serif;
 }
+.btn-outline {
+  background: transparent;
+  border: 1px solid $gold-primary;
+  color: $gold-light;
+
+  &:hover {
+    background: $gold-primary;
+    color: $bg-dark;
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, $gold-primary 0%, $gold-dark 100%);
+  color: $bg-dark;
+  border: 1px solid $gold-light;
+
+  &:hover {
+    background: linear-gradient(135deg, $gold-light 0%, $gold-primary 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(184, 134, 11, 0.3);
+  }
+}
