@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass scss/main.scss css/main.css",
-    "prefix": "postcss css/main.css --use autoprefixer -o css/main.css",
-    "build": "npm run sass && npm run prefix",
-    "watch": "sass --watch scss:css"
+    "sass": "sass --watch scss/main.scss:css/main.css",
+    "postcss": "postcss css/main.css -o css/main.css --watch",
+    "dev": "sass --watch scss/main.scss:css/main.css & postcss css/main.css -o css/main.css --watch"
   },
   "keywords": [],
   "author": "",
