@@ -3,3 +3,34 @@
   align-items: $align;
   justify-content: $justify;
 }
+
+// Breakpoints
+
+//1st Breakpoint
+$breakpoints: (
+  "sm": 36em,
+  //576px
+  "md": 48em,
+  //768px
+  "lg": 64em,
+  //1024px
+  "xl": 75em,
+  //1200px
+  "xxl": 87.5em, //1400px
+);
+
+@mixin respond($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+//2nd Breakpoint
+@mixin breakpoint($width) {
+  @media only screen and (max-width: #{$width}) {
+    @content;
+  }
+}
+
+//3rd Breakpoint
+//freecodecamp how to make a landing page coder coder...30 minutes

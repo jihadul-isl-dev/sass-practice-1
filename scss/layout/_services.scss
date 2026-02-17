@@ -1,0 +1,91 @@
+@use "../abstracts" as *;
+
+.services {
+  background: $bg-card;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $border-color, transparent);
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+
+    @include respond(xl) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(37.5em) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    padding: 48px 32px;
+    background: $bg-dark;
+    border: 1px solid $border-color;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-8px);
+      border-color: $gold-dark;
+      background: $bg-card-hover;
+
+      &::before {
+        transform: scaleX(1);
+      }
+
+      &-icon {
+        background: $gold-primary;
+        color: $bg-dark;
+        border-color: $gold-primary;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: $gold-primary;
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    &-icon {
+      @include flexLayout;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      border: 1px solid $gold-dark;
+      color: $gold-light;
+      font-size: 24px;
+      transition: all 0.4s ease;
+    }
+
+    &-title {
+      font-size: 22px;
+      color: $text-primary;
+      margin-bottom: 16px;
+    }
+
+    &-desc {
+      font-size: 14px;
+      color: $text-secondary;
+      line-height: 1.7;
+    }
+  }
+}
