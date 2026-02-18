@@ -1,0 +1,136 @@
+@use "../abstracts" as *;
+
+.testimonials {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: 80px;
+    left: 10%;
+    font-family: $font-cormorant;
+    font-size: 400px;
+    color: $gold-dark;
+    opacity: 0.05;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  &-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &-slider {
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.testimonial-item {
+  min-width: 100%;
+  padding: 0 60px;
+
+  &-text {
+    font-family: $font-cormorant;
+    font-size: clamp(24px, 3vw, 26px);
+    font-style: italic;
+    color: $text-primary;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  &-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: $text-primary;
+      letter-spacing: 0.05em;
+    }
+
+    &-title {
+      font-size: 13px;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+}
+
+.testimonials-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0 0;
+
+  &-arrow {
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    border: 1px solid $border-color;
+    color: $text-muted;
+    cursor: pointer;
+    @include flexLayout;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+      border-color: $gold-primary;
+      color: $gold-light;
+      background: rgba(184, 134, 11, 0.1);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .prev {
+    margin-left: -80px;
+  }
+
+  .next {
+    margin-right: -80px;
+  }
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 48px;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: $border-color;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $text-muted;
+    }
+
+    &.active {
+      background: $gold-primary;
+      width: 32px;
+    }
+  }
+}
